@@ -110,7 +110,7 @@ const betWinGo = async (req, res) => {
     }
 
     let userInfo = user[0];
-    let period = winGoNow[0]??.period;
+    let period = winGoNow[0]?.period;
     let fee = (x * money) * 0.02;
     let total = (x * money) - fee;
     let timeNow = Date.now();
@@ -303,7 +303,7 @@ const listOrderOld = async (req, res) => {
         data: {
             gameslist: wingo,
         },
-        period: period[0]??.period,
+        period: period[0]?.period,
         page: page,
         status: true
     });
@@ -390,7 +390,7 @@ const addWinGo = async (game) => {
 
         const [winGoNow] = await connection.query(`SELECT period FROM wingo WHERE status = 0 AND game = "${join}" ORDER BY id DESC LIMIT 1 `);
         const [setting] = await connection.query('SELECT * FROM `admin` ');
-        let period = winGoNow[0]??.period; // cầu hiện tại
+        let period = winGoNow[0]?.period; // cầu hiện tại
         let amount = Math.floor(Math.random() * 10); // xanh đỏ tím
         let timeNow = Date.now();
 
